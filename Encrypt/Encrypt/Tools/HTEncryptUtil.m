@@ -41,43 +41,6 @@
     return base64String;
 }
 
-
-#pragma mark - AES加密
-//将string转成带密码的data
-+(NSData*)encryptAESData:(NSString*)string {
-    //将nsstring转化为nsdata
-    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
-    //使用密码对nsdata进行加密
-    NSData *encryptedData = [data AES256EncryptWithKey:APP_PASSWORDKEY];
-    return encryptedData;
-}
-
-//将带密码的data转成string
-+(NSString*)decryptAESData:(NSData*)data {
-    //使用密码对data进行解密
-    NSData *decryData = [data AES256DecryptWithKey:APP_PASSWORDKEY];
-    //将解了密码的nsdata转化为nsstring
-    NSString *string = [[NSString alloc] initWithData:decryData encoding:NSUTF8StringEncoding];
-    return string;
-}
-
-#pragma makr - DES加密、解密
-+ (NSData *)encryptDESData:(NSString *)string {
-    //将nsstring转化为nsdata
-    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
-    //使用密码对nsdata进行加密
-    NSData *encryptedData = [data DESEncryptWithKey:APP_PASSWORDKEY];
-    return encryptedData;
-}
-
-+ (NSString *)decryptDESData:(NSData *)data {
-    //使用密码对data进行解密
-    NSString *decryptJsonString = [data DESDecryptWithKey:APP_PASSWORDKEY];
-    //将解了密码的nsdata转化为nsstring
-    //    NSString *string = [[NSString alloc] initWithData:decryData encoding:NSUTF8StringEncoding];
-    return decryptJsonString;
-}
-
 #pragma mark - MD5 加密
 //String转化为md5加密String
 + (NSString *)md5:(NSString *)str
@@ -120,6 +83,42 @@
     for(int i = 0; i < CC_SHA512_DIGEST_LENGTH; i++)
         [output appendFormat:@"%02x", digest[i]];
     return output;
+}
+
+#pragma mark - AES加密
+//将string转成带密码的data
++(NSData*)encryptAESData:(NSString*)string {
+    //将nsstring转化为nsdata
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    //使用密码对nsdata进行加密
+    NSData *encryptedData = [data AES256EncryptWithKey:APP_PASSWORDKEY];
+    return encryptedData;
+}
+
+//将带密码的data转成string
++(NSString*)decryptAESData:(NSData*)data {
+    //使用密码对data进行解密
+    NSData *decryData = [data AES256DecryptWithKey:APP_PASSWORDKEY];
+    //将解了密码的nsdata转化为nsstring
+    NSString *string = [[NSString alloc] initWithData:decryData encoding:NSUTF8StringEncoding];
+    return string;
+}
+
+#pragma makr - DES加密、解密
++ (NSData *)encryptDESData:(NSString *)string {
+    //将nsstring转化为nsdata
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    //使用密码对nsdata进行加密
+    NSData *encryptedData = [data DESEncryptWithKey:APP_PASSWORDKEY];
+    return encryptedData;
+}
+
++ (NSString *)decryptDESData:(NSData *)data {
+    //使用密码对data进行解密
+    NSString *decryptJsonString = [data DESDecryptWithKey:APP_PASSWORDKEY];
+    //将解了密码的nsdata转化为nsstring
+    //    NSString *string = [[NSString alloc] initWithData:decryData encoding:NSUTF8StringEncoding];
+    return decryptJsonString;
 }
 
 @end

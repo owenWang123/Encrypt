@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  HTEncryptViewController.h
 //  Encrypt
 //
 //  Created by admin on 2018/8/16.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface HTEncryptViewController : UIViewController
+@property (nonatomic, strong) NSString *titleStr;
 
 @end
-

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HTMenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
+    HTMenuViewController *rootVC = [[HTMenuViewController alloc]init];
+    UINavigationController *rootNav = [[UINavigationController alloc]initWithRootViewController:rootVC];
+    self.window.rootViewController = rootNav;
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

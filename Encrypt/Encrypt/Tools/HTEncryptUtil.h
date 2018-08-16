@@ -15,6 +15,13 @@
 + (NSString*)encodeBase64Data:(NSData *)data;
 + (NSString*)decodeBase64Data:(NSData *)data;
 
+#pragma mark - MD5 加密
++ (NSString *)md5:(NSString *)str;
++ (NSString *)md5HexDigest:(NSString*)input;
+
+#pragma mark - SHA512加密
++ (NSString*)getSHA512String:(NSString*)s;
+
 #pragma mark - AES加密、解密
 //将string转成带密码的data
 + (NSData*)encryptAESData:(NSString*)string;
@@ -24,12 +31,5 @@
 #pragma mark - DES加密、解密
 + (NSData *)encryptDESData:(NSString *)string;
 + (NSString *)decryptDESData:(NSData *)data;
-
-#pragma mark - MD5 加密
-+ (NSString *)md5:(NSString *)str;
-+ (NSString *)md5HexDigest:(NSString*)input;
-
-#pragma mark - SHA512加密
-+ (NSString*)getSHA512String:(NSString*)s;
 
 @end
