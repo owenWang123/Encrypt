@@ -14,7 +14,6 @@
 		845B22DA212512910005B605 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B22D9212512910005B605 /* main.m */; };
 		845B22E4212512910005B605 /* EncryptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B22E3212512910005B605 /* EncryptTests.m */; };
 		845B22EF212512910005B605 /* EncryptUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B22EE212512910005B605 /* EncryptUITests.m */; };
-		845B22FE2125130A0005B605 /* NSString+Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B22FD2125130A0005B605 /* NSString+Encrypt.m */; };
 		845B2304212514700005B605 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B2302212514700005B605 /* GTMBase64.m */; };
 		845B23072125151D0005B605 /* HTEncryptUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B23062125151D0005B605 /* HTEncryptUtil.m */; };
 		845B230C212515460005B605 /* NSData+DES.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B2308212515460005B605 /* NSData+DES.m */; };
@@ -55,8 +54,6 @@
 		845B22EA212512910005B605 /* EncryptUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EncryptUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		845B22EE212512910005B605 /* EncryptUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncryptUITests.m; sourceTree = "<group>"; };
 		845B22F0212512910005B605 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		845B22FC2125130A0005B605 /* NSString+Encrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Encrypt.h"; sourceTree = "<group>"; };
-		845B22FD2125130A0005B605 /* NSString+Encrypt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encrypt.m"; sourceTree = "<group>"; };
 		845B2301212514700005B605 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		845B2302212514700005B605 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		845B2303212514700005B605 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
@@ -158,8 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				845B2300212514700005B605 /* GTMBase64 */,
-				845B22FC2125130A0005B605 /* NSString+Encrypt.h */,
-				845B22FD2125130A0005B605 /* NSString+Encrypt.m */,
 				845B230B212515460005B605 /* NSData+AES.h */,
 				845B2309212515460005B605 /* NSData+AES.m */,
 				845B230A212515460005B605 /* NSData+DES.h */,
@@ -310,7 +305,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				845B22FE2125130A0005B605 /* NSString+Encrypt.m in Sources */,
 				845B230C212515460005B605 /* NSData+DES.m in Sources */,
 				845B2304212514700005B605 /* GTMBase64.m in Sources */,
 				845B231021254E270005B605 /* HTEncryptViewController.m in Sources */,

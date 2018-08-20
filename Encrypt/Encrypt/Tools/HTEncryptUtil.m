@@ -14,6 +14,17 @@
 
 #define APP_PASSWORDKEY     @"0363b3e377d42bd919fbd28084ca9c67"
 @implementation HTEncryptUtil
+#pragma mark - URL的encode
++ (NSString *)ht_urlEncode:(NSString *)url{
+    NSString *encodeURL = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithRange:NSMakeRange(0, url.length)]];
+    
+    return encodeURL;
+}
++ (NSString *)ht_urlDencode:(NSString *)url{
+    NSString *dencodeURL = [url stringByRemovingPercentEncoding];
+    
+    return dencodeURL;
+}
 #pragma mark - base64
 + (NSString*)encodeBase64String:(NSString * )input {
     NSData *data = [input dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];

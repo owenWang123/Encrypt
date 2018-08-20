@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface HTEncryptUtil : NSObject
+#pragma mark -  URL的encode
++ (NSString *)ht_urlEncode:(NSString *)url;
++ (NSString *)ht_urlDencode:(NSString *)url;
 #pragma mark - Base64 加密、解密
 + (NSString*)encodeBase64String:(NSString *)input;
 + (NSString*)decodeBase64String:(NSString *)input;

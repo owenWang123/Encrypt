@@ -15,6 +15,7 @@
 @property (nonatomic,strong) UILabel *enctrptLab;
 @property (nonatomic,strong) UIButton *dectrptBtn;
 @property (nonatomic,strong) UILabel *dectrptLab;
+@property (nonatomic,strong) NSData *encryptData;
 
 @end
 
@@ -80,9 +81,11 @@
     }else if ([self.titleStr isEqualToString:@"SHA"]){
         resultStr = [HTEncryptUtil getSHA512String:self.wordFld.text];
     }else if ([self.titleStr isEqualToString:@"AES"]){
-//        resultStr = [HTEncryptUtil encryptAESData:self.wordFld.text];
+        self.encryptData = [HTEncryptUtil encryptAESData:self.wordFld.text];
+        resultStr = @"转码成功";
     }else if ([self.titleStr isEqualToString:@"DES"]){
-//        resultStr = [HTEncryptUtil encryptDESData:self.wordFld.text];
+        self.encryptData = [HTEncryptUtil encryptDESData:self.wordFld.text];
+        resultStr = @"转码成功";
     }else if ([self.titleStr isEqualToString:@"RSA"]){
         
     }
@@ -99,9 +102,9 @@
     }else if ([self.titleStr isEqualToString:@"SHA"]){
         //DONOTHING
     }else if ([self.titleStr isEqualToString:@"AES"]){
-//        resultStr = [HTEncryptUtil decryptAESData:self.enctrptLab.text];
+        resultStr = [HTEncryptUtil decryptAESData:self.encryptData];
     }else if ([self.titleStr isEqualToString:@"DES"]){
-//        resultStr = [HTEncryptUtil decryptDESData:self.enctrptLab.text];
+        resultStr = [HTEncryptUtil decryptDESData:self.encryptData];
     }else if ([self.titleStr isEqualToString:@"RSA"]){
         
     }
