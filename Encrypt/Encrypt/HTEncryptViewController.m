@@ -29,7 +29,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self configUI];
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if ([self.titleStr isEqualToString:@"URL Encode"]) {
+        // 完整链接： https://www.baidu.com/s?wd=%+&sd &p2=中文
+        self.wordFld.text = @"%+&sd &p2=中文";
+//        self.wordFld.text = @"https://www.baidu.com/s?wd=%25%2B%26sd+%26p2=%E4%B8%AD%E6%96%87&tn=84053098_3_dg&ie=utf-8";
+    }
+}
 - (void)configUI{
     self.title = self.titleStr;
     
@@ -73,18 +80,22 @@
     [[UIApplication sharedApplication].keyWindow endEditing:YES];
     
     NSString *resultStr = nil;
-    if ([self.titleStr isEqualToString:@"Base64"]) {
-        resultStr = [HTEncryptUtil encodeBase64String:self.wordFld.text];
+    if ([self.titleStr isEqualToString:@"URL Encode"]) {
+        resultStr = [HTEncryptUtil ht_urlEncode:self.wordFld.text];
+        // 使用时拼接
+//        NSString *urlStr = [NSString stringWithFormat:@"https://www.baidu.com/s?wd=%@",resultStr];
+//        NSLog(@"%@",urlStr);
+    }else if ([self.titleStr isEqualToString:@"Base64"]) {
+        resultStr = [HTEncryptUtil ht_encodeBase64String:self.wordFld.text];
     }else if ([self.titleStr isEqualToString:@"MD5"]){
-        resultStr = [HTEncryptUtil md5:self.wordFld.text];
-//        resultStr = [HTEncryptUtil md5HexDigest:self.wordFld.text];
+        resultStr = [HTEncryptUtil ht_MD5ForUpper32Bate:self.wordFld.text];
     }else if ([self.titleStr isEqualToString:@"SHA"]){
-        resultStr = [HTEncryptUtil getSHA512String:self.wordFld.text];
+        resultStr = [HTEncryptUtil ht_SHA512:self.wordFld.text];
     }else if ([self.titleStr isEqualToString:@"AES"]){
-        self.encryptData = [HTEncryptUtil encryptAESData:self.wordFld.text];
+        self.encryptData = [HTEncryptUtil ht_encryptAESData:self.wordFld.text];
         resultStr = @"转码成功";
     }else if ([self.titleStr isEqualToString:@"DES"]){
-        self.encryptData = [HTEncryptUtil encryptDESData:self.wordFld.text];
+        self.encryptData = [HTEncryptUtil ht_encryptDESData:self.wordFld.text];
         resultStr = @"转码成功";
     }else if ([self.titleStr isEqualToString:@"RSA"]){
         
@@ -95,16 +106,18 @@
     [[UIApplication sharedApplication].keyWindow endEditing:YES];
     
     NSString *resultStr = nil;
-    if ([self.titleStr isEqualToString:@"Base64"]) {
-        resultStr = [HTEncryptUtil decodeBase64String:self.enctrptLab.text];
+    if ([self.titleStr isEqualToString:@"URL Encode"]) {
+        resultStr = [HTEncryptUtil ht_urlDencode:self.enctrptLab.text];
+    }else if ([self.titleStr isEqualToString:@"Base64"]) {
+        resultStr = [HTEncryptUtil ht_decodeBase64String:self.enctrptLab.text];
     }else if ([self.titleStr isEqualToString:@"MD5"]){
-        //DONOTHING
+        resultStr = @"加密不可逆";
     }else if ([self.titleStr isEqualToString:@"SHA"]){
-        //DONOTHING
+        resultStr = @"加密不可逆";
     }else if ([self.titleStr isEqualToString:@"AES"]){
-        resultStr = [HTEncryptUtil decryptAESData:self.encryptData];
+        resultStr = [HTEncryptUtil ht_decryptAESData:self.encryptData];
     }else if ([self.titleStr isEqualToString:@"DES"]){
-        resultStr = [HTEncryptUtil decryptDESData:self.encryptData];
+        resultStr = [HTEncryptUtil ht_decryptDESData:self.encryptData];
     }else if ([self.titleStr isEqualToString:@"RSA"]){
         
     }

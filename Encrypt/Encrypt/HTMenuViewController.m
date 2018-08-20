@@ -63,7 +63,7 @@
 #pragma mark- lazy
 - (NSMutableArray *)sourceArr{
     if (_sourceArr == nil) {
-        NSArray *tmpArr = @[@"Base64",@"MD5",@"SHA",@"AES",@"DES"];
+        NSArray *tmpArr = @[@"URL Encode",@"Base64",@"MD5",@"SHA",@"AES",@"DES"];
         _sourceArr = [NSMutableArray arrayWithArray:tmpArr];
     }
     return _sourceArr;
